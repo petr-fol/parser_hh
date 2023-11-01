@@ -18,7 +18,7 @@ json_saver.delete_vacancy(vacancy)
 # Функция для взаимодействия с пользователем
 
 
-def user_interaction():
+def user_interface():
     platforms = ["HeadHunter", "SuperJob"]
     search_query = input("Введите поисковый запрос: ")
     top_n = int(input("Введите количество вакансий для вывода в топ N: "))
@@ -35,4 +35,4 @@ def user_interaction():
 
 
 if __name__ == "__main__":
-    user_interaction()
+    user_interface()
