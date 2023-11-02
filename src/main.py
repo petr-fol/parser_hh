@@ -1,5 +1,6 @@
 # Создание экземпляра класса для работы с API сайтов с вакансиями
 from src.api_hh import HeadHunterAPI
+from src.api_sj import SuperJobAPI
 
 hh_api = HeadHunterAPI()
 superjob_api = SuperJobAPI()

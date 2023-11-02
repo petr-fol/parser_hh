@@ -1,7 +1,7 @@
 from src.api_interface import API
 
 
-class HeadHunterAPI(API):
+class SuperJobAPI(API):
 
     def __init__(self):
         pass
