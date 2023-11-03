@@ -1,16 +1,18 @@
 # Создание экземпляра класса для работы с API сайтов с вакансиями
 from src.api_hh import HeadHunterAPI
 from src.api_sj import SuperJobAPI
+from src.vacancy import filter_vacancies, Vacancy
 
 hh_api = HeadHunterAPI()
-superjob_api = SuperJobAPI()
+# super_job_api = SuperJobAPI()
 
 # Получение вакансий с разных платформ
 hh_vacancies = hh_api.get_vacancies("Python")
-superjob_vacancies = superjob_api.get_vacancies("Python")
+# super_job_vacancies = super_job_api.get_vacancies("Python")
 
 # Создание экземпляра класса для работы с вакансиями
-vacancy = Vacancy("Python Developer", "<https://hh.ru/vacancy/123456>", "100 000-150 000 руб.", "Требования: опыт работы от 3 лет...")
+vacancy = Vacancy("Python Developer", "<https://hh.ru/vacancy/123456>", 100_000, 150_000, "RUR", "Требования: опыт "
+                                                                                                 "работы от 3 лет...")
 
 # Сохранение информации о вакансиях в файл
 json_saver = JSONSaver()
@@ -26,7 +28,7 @@ def user_interface():
     search_query = input("Введите поисковый запрос: ")
     top_n = int(input("Введите количество вакансий для вывода в топ N: "))
     filter_words = input("Введите ключевые слова для фильтрации вакансий: ").split()
-    filtered_vacancies = filter_vacancies(hh_vacancies, superjob_vacancies, filter_words)
+    filtered_vacancies = filter_vacancies(hh_vacancies, filter_words)  # super_job_vacancies
 
     if not filtered_vacancies:
         print("Нет вакансий, соответствующих заданным критериям.")
